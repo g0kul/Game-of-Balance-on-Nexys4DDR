@@ -9,5 +9,5 @@ Game of Balance is an accelerometer based maze navigation game, with added featu
 * Added FPGA hardware modules to read MEMS 3-axis On-Board Accelerometer data and to interface LCD display and other push buttons with MicroBlaze soft processor.
 * This project was done as a part of coursework - ECE253 Embedded System Design (Hardware Software Interface).
 * Contributors:
-  - Gokul Prasath Nallasami (SM Design in QP Nano, Design idea for Dynamic Maze Generation, Ball Collision Logic)
-  - Barath Kumar Ramaswami (Implementation of Dynamic Maze Generation, LCD Update Logic)
+  - Gokul Prasath Nallasami (SM Design in QP Nano, Dynamic Maze Generation logic with different difficulty level, Ball Collision and score/life update logic)
+  - Barath Kumar Ramaswami (Implementation of base Dynamic Maze Generation logic, LCD Update Logic)
