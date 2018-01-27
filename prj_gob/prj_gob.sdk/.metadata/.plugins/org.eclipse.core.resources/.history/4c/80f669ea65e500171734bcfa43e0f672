@@ -1,0 +1,305 @@
+/*
+ *timing.c: simple starter application for lab 1A and 1B
+ *
+ */
+
+#include <stdio.h>		// Used for printf()
+#include "xparameters.h"	// Contains hardware addresses and bit masks
+#include "xil_cache.h"		// Cache Drivers
+#include "xintc.h"		// Interrupt Drivers
+#include "xtmrctr.h"		// Timer Drivers
+#include "xtmrctr_l.h" 		// Low-level timer drivers
+#include "xil_printf.h" 	// Used for xil_printf()
+//#include "extra.h" 		// Provides a source of bus contention
+#include "xgpio.h" 		// LED driver, used for General purpose I/i
+#include "xspi.h"
+#include "xspi_l.h"
+#include "lcd.h"
+#include "lcd_test.h"
+
+#include "../gob_top.h"
+
+#define DCOERCE40(x_) ((x_+1) % 40)? (((x_ / 40) * 40)-1) : (x_)
+#define UCOERCE40(x_) ((x_+1) % 40)? ((((x_ / 40) + 1) * 40)-1) : (x_)
+
+#define ACTUAL_XLOC(x) ((x)+MAZE_BORDER_X_SIZE)
+#define ACTUAL_YLOC(y) ((y)+MAZE_BORDER_Y_SIZE)
+
+#define TOP      //Top of screen text print
+
+
+#ifdef TOP
+int xcor= 60;    //Coordinate to print the text when diff buttons are pressed
+int ycor=5;
+#endif
+
+
+volatile int timerTrigger = 0;
+int cx= 124, cy= 314; //Current location of x and y coordinate for Volume slider
+int mx = 124, my= 314; //Starting location for the Volume slider x and y coor
+int vol_count = 0; //Count variable for the volume slider(cannot exceed 63)
+int inact_flag = 0; //Flag to check inactive state for timeout
+int mute_flag = 0;  //Mute flag used to check mute condition.IF 1  dont increment/decrement volume slider
+int clear_text_flag = 0, clear_vol_flag = 0;
+
+void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber)
+{
+	timerTrigger = 100;
+}
+
+int lcd_spi_init()
+{
+	static XGpio dc;
+	static XSpi spi;
+
+	XSpi_Config *spiConfig;	/* Pointer to Configuration data */
+
+	u32 status;
+	u32 controlReg;
+
+	//---------
+
+	/*
+	 * Initialize the GPIO driver so that it's ready to use,
+	 * specify the device ID that is generated in xparameters.h
+	 */
+	status = XGpio_Initialize(&dc, XPAR_LCD_SPI_DC_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		xil_printf("Initialize GPIO dc fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Set the direction for all signals to be outputs
+	 */
+	XGpio_SetDataDirection(&dc, 1, 0x0);
+
+
+	/*
+	 * Initialize the SPI driver so that it is  ready to use.
+	 */
+	spiConfig = XSpi_LookupConfig(XPAR_LCD_SPI_DEVICE_ID);
+	if (spiConfig == NULL) {
+		xil_printf("Can't find spi device!\n");
+		return XST_DEVICE_NOT_FOUND;
+	}
+
+	status = XSpi_CfgInitialize(&spi, spiConfig, spiConfig->BaseAddress);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize spi fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Reset the SPI device to leave it in a known good state.
+	 */
+	XSpi_Reset(&spi);
+
+	/*
+	 * Setup the control register to enable master mode
+	 */
+	controlReg = XSpi_GetControlReg(&spi);
+	XSpi_SetControlReg(&spi,
+			(controlReg | XSP_CR_ENABLE_MASK | XSP_CR_MASTER_MODE_MASK) &
+			(~XSP_CR_TRANS_INHIBIT_MASK));
+
+	// Select 1st slave device
+	XSpi_SetSlaveSelectReg(&spi, ~0x01);
+
+	initLCD();
+
+	clrScr();
+
+	//Default background
+	//drawBackground(0,0,DISP_X_SIZE,DISP_Y_SIZE);
+	//drawMazeBrd();
+	//display_maze();
+	start_screen(0);
+
+	//xil_printf("End\n");
+	return 0;
+}
+
+void drawMazeBrd()
+{
+	//int x = MAZE_ARR[0][0];
+
+	//Fill Outer Border
+	setColor(BRD_COL,BRD_COL,BRD_COL);
+	fillRect(0,0,MAZE_BORDER_X_SIZE, DISP_Y_SIZE);	//left
+	fillRect(DISP_X_SIZE - MAZE_BORDER_X_SIZE, 0, DISP_X_SIZE, DISP_Y_SIZE);	//right
+	fillRect(0,0,DISP_X_SIZE, MAZE_BORDER_Y_SIZE);	//top
+	fillRect(0, DISP_Y_SIZE - MAZE_BORDER_Y_SIZE, DISP_X_SIZE, DISP_Y_SIZE);	//bottom
+}
+
+void display_maze()
+{
+int x,y;//Start coordinates for the maze generation
+int ptrx,ptry; //variables that map the coordinate of lCD to the array
+
+//clear screen before starting
+clrScr();
+drawMazeBrd();
+
+for(y=MAZE_BORDER_Y_SIZE;y<DISP_Y_SIZE-MAZE_BORDER_Y_SIZE;y+=MAZE_CELL_SIZE) //Sweep from left to right and then fill the blocks that are declared in array as 1
+	{
+		ptry=(y-MAZE_BORDER_Y_SIZE)/MAZE_CELL_SIZE;
+		for(x=MAZE_BORDER_X_SIZE;x<DISP_X_SIZE-MAZE_BORDER_X_SIZE;x+=MAZE_CELL_SIZE)
+		{
+			ptrx=(x-MAZE_BORDER_X_SIZE)/MAZE_CELL_SIZE;
+			if(maze_arr[ptry][ptrx]==WALL) // 0 indicates walls or bricks
+			{
+				setColor(WALL_R,WALL_G,WALL_B);//Sienna brown color for bricks
+				fillRect(x,y,x+MAZE_CELL_SIZE_M1,y+MAZE_CELL_SIZE_M1);
+			}
+			else if(maze_arr[ptry][ptrx]==PLAYER) // 2 indicates  user
+			{
+				player_x= ptrx*MAZE_CELL_SIZE;  // Store the start coord in global variable
+				player_y=ptry*MAZE_CELL_SIZE;
+				setColor(BALL_R,BALL_G,BALL_B); // Blue color for user ball
+				fillRect(x,y,x+MAZE_CELL_SIZE_M1,y+MAZE_CELL_SIZE_M1);
+			}
+			else if(maze_arr[ptry][ptrx]==DESTINATION) // 3 indicates destination
+			{
+				dest_x= ptrx*MAZE_CELL_SIZE;   // Store the end coord in global variable
+				dest_y= ptry*MAZE_CELL_SIZE;
+				setColor(DEST_R,DEST_G,DEST_B); // yellow color for destination
+				fillRect(x,y,x+MAZE_CELL_SIZE_M1,y+MAZE_CELL_SIZE_M1);
+			}
+			else if(maze_arr[ptry][ptrx]==STAR) // 3 indicates destination
+			{
+				setColor(STAR_R,STAR_G,STAR_B); // color for star
+				fillRect(x,y,x+MAZE_CELL_SIZE_M1,y+MAZE_CELL_SIZE_M1);
+			}
+			else if(maze_arr[ptry][ptrx]==HOLE) // 3 indicates destination
+			{
+				setColor(HOLE_R,HOLE_G,HOLE_B); // color for ball
+				fillRect(x,y,x+MAZE_CELL_SIZE_M1,y+MAZE_CELL_SIZE_M1);
+			}
+		}
+	}
+//Display Static Text for Score and Life at top
+    setFont(SmallFont);
+    setColor(VIC_SCR_FONT_R,VIC_SCR_FONT_G,VIC_SCR_FONT_B);// Victory font color reused for this score
+    lcdPrint("SCORE:", SCORE_X , SCORE_Y); // Print the Static score text on the top of the display
+    printChar(player_score + 48, SCORE_X+OFSET,SCORE_Y);    //number to ascii
+    lcdPrint("LIFE:", LIFE_X , LIFE_Y); // Print the Static score text on the top of the display
+    printChar(player_life + 48, LIFE_X+OFSET,LIFE_Y);    //number to ascii
+}
+
+//16bit because the max value will go upto 310 :-(
+void move_ball(uint16_t tox,uint16_t toy)
+{
+	uint16_t fromx, fromy;
+	uint16_t xtmp,ytmp;
+	xtmp=tox;
+	ytmp=toy;
+	//array index to location in lcd
+	fromx = ACTUAL_XLOC(player_x);
+	fromy = ACTUAL_YLOC(player_y);
+	tox = ACTUAL_XLOC(tox);
+	toy = ACTUAL_YLOC(toy);
+
+	// SetColor for the ball to move
+	setColor(BALL_R,BALL_G,BALL_B);
+    fillRect(tox,toy,tox+BALL_SIZE_M1,toy+BALL_SIZE_M1); //create the ball at the destination coordinates with color white
+
+    //find out the colour to get back
+    switch(maze_arr[player_y][player_x])
+    {
+		case WAY:		//Way visible
+		case PLAYER:	//Initial player becomes way after moving
+    	case STAR:		//star once got, its gone
+    	    setColor(WAY_COL,WAY_COL,WAY_COL);
+    		break;
+
+    	case HOLE:		//Restore Hole
+    		setColor(HOLE_R,HOLE_G,HOLE_B);
+    		break;
+    	//No need to handle destination, as game will exit
+    }
+
+    fillRect(fromx,fromy,fromx+BALL_SIZE_M1,fromy+BALL_SIZE_M1); // Erase the ball at the present coordinates with the fixed color(black).
+    if(maze_arr[ytmp][xtmp]==STAR) // If star then display added score
+       {
+       setFont(SmallFont);
+       setColor(VIC_SCR_FONT_R,VIC_SCR_FONT_G,VIC_SCR_FONT_B);// Victory font color reused for this score
+       printChar(player_score + 48, SCORE_X+OFSET,SCORE_Y);    //number to ascii
+       }
+       else if(maze_arr[ytmp][xtmp]==HOLE) // If hole display the decreased life
+       {
+        setFont(SmallFont);
+        setColor(VIC_SCR_FONT_R,VIC_SCR_FONT_G,VIC_SCR_FONT_B);// Victory font color reused for this score
+        printChar(player_life + 48, LIFE_X+OFSET,LIFE_Y);    //number to ascii --life display
+       }
+	return;
+}
+
+void start_screen(int mode)
+{
+    setColor(ST_SCR_R,ST_SCR_G,ST_SCR_B); //color for bgnd
+    fillRect(0,0,DISP_X_SIZE,DISP_Y_SIZE); // Fill the entire screen with CYAN
+    setColor(ST_SCR_FONT_R,ST_SCR_FONT_G,ST_SCR_FONT_B); //Green color for text
+    if(mode==1) //IF stop button is pressed then check for the flag. If flag is set display game stopped
+    {
+	    setFont(BigFont);
+	    lcdPrint("GAME STOPPED", 25 , 60);
+    }
+    setFont(SmallFont);
+    lcdPrint("PRESS START BUTTON TO BEGIN", 15 , 120); // Intial message for the user
+    //print the legend for user understanding
+    //setFont(BigFont);// big font for better legibility
+    lcdPrint("LEGEND",90,100);
+    lcdPrint("WALL",65,140);
+    lcdPrint("USER",65,170);
+    lcdPrint("END",65,200);
+    lcdPrint("STAR",65,230);
+    lcdPrint("HOLE",65,260);
+    setColor(WALL_R,WALL_G,WALL_B);//Sienna brown color for bricks
+    fillRect(35,140,55,160); // draw a sample brown block for wall
+    setColor(BALL_R,BALL_G,BALL_B); // Player ball Blue color
+    fillRect(35,170,55,190); //draw a sample user block
+    setColor(DEST_R,DEST_G,DEST_B); // yellow color for destination
+    fillRect(35,200,55,220);// draw a sample destination block
+    setColor(STAR_R,STAR_G,STAR_B); // yellow color for destination
+    fillRect(35,230,55,250);// draw a sample destination block
+    setColor(HOLE_R,HOLE_G,HOLE_B); // yellow color for destination
+    fillRect(35,260,55,280);// draw a sample destination block
+}
+
+void end_screen()
+{
+    //setColor(ST_END_R,ST_END_G,ST_END_B); //Set Color to Green
+    //fillRect(MAZE_BORDER_X_SIZE-1,MAZE_BORDER_Y_SIZE-1,DISP_X_SIZE-MAZE_BORDER_X_SIZE,DISP_Y_SIZE-MAZE_BORDER_Y_SIZE); //Fill the internal box from edge of border to edge of overlay
+    //fillRect(0,0,DISP_X_SIZE,DISP_Y_SIZE);
+    setFont(BigFont);
+    setColor(END_SCR_FONT_R,END_SCR_FONT_G,END_SCR_FONT_B); //font color to white
+    lcdPrint("LEVEL FAILED", 15 , 60);
+    lcdPrint("YOUR SCORE:", 15 , 150);
+    printChar(player_score + 48, 185,150);	//number to ascii
+    setFont(SmallFont);
+    lcdPrint("PRESS START TO PLAY AGAIN",15,210);
+    lcdPrint("PRESS STOP TO HOME",15,230);
+}
+
+void victory_screen()
+{
+    //setColor(VIC_SCR_R,VIC_SCR_G,VIC_SCR_B); //Set Color to fusia
+    //fillRect(MAZE_BORDER_X_SIZE-1,MAZE_BORDER_Y_SIZE-1,DISP_X_SIZE-MAZE_BORDER_X_SIZE,DISP_Y_SIZE-MAZE_BORDER_Y_SIZE); //Fill the internal box from edge of border to edge of overlay
+    //fillRect(0,0,DISP_X_SIZE,DISP_Y_SIZE);
+    setColor(VIC_SCR_FONT_R,VIC_SCR_FONT_G,VIC_SCR_FONT_B);
+    //Print the level completed screen
+    setFont(BigFont);
+    if(player_score==PLAYER_STARS_COUNT && player_life==PLAYER_LIFE_COUNT)
+       {
+           lcdPrint("PERFECT!", 60 , 80);
+       }
+    lcdPrint("LEVEL", 80 , 100);
+    lcdPrint("COMPLETED", 50 , 120);
+    lcdPrint("YOUR SCORE:", 15 , 150);
+    printChar(player_score + 48, 185,150);	//number to ascii
+    //Print options for user to resume or quit the game after completion
+    setFont(SmallFont);
+    lcdPrint("PRESS START TO PLAY AGAIN",15,210);
+    lcdPrint("PRESS STOP TO HOME",15,230);
+}

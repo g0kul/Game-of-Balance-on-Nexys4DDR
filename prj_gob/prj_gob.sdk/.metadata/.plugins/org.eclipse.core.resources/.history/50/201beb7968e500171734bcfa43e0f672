@@ -1,0 +1,275 @@
+/*
+ * acl_main.c
+ *
+ *  Created on: Nov 25, 2017
+ *      Author: gokul prasath nallasami
+ */
+
+#include "acl_main.h"
+#include "../gob_top.h"
+
+#define NEAR_ARR_XINDEX(x_) (x_ % (BALL_SIZE))? ((x_ / BALL_SIZE)+1) : (x_ / BALL_SIZE)
+#define NEAR_ARR_YINDEX(x_) (x_ % (BALL_SIZE))? ((x_ / BALL_SIZE)+1) : (x_ / BALL_SIZE)
+
+static int XDEFAULT, YDEFAULT;
+
+//Accelerometer Initialization
+void acl_init()
+{
+   // Initialize SPI
+   SPI_Init(SPI_BASEADDR, 0, 0, 0);
+
+   // Software Reset
+   ADXL362_WriteReg(ADXL362_SOFT_RESET, ADXL362_RESET_CMD);
+   delay_ms(10);
+   ADXL362_WriteReg(ADXL362_SOFT_RESET, 0x00);
+
+   // Enable Measurement
+   ADXL362_WriteReg(ADXL362_POWER_CTL, (2 << ADXL362_MEASURE));
+
+   //set current position to initial position
+   acl_calibrate();
+
+   return;
+}
+
+//set the current position as the default for comparision
+void acl_calibrate()
+{
+    ADXL362_ReturnXY(&XDEFAULT, &YDEFAULT);
+}
+
+//Do the acl rd and movement
+int do_acl_access()
+{
+	int i, arr_index, isAvl;
+	int xaxis, yaxis;
+	int xchange, ychange;
+	int new_x, new_y, new_x_index, new_y_index;
+	//int tempx, tempy;
+
+	//get sensor readings for deviations
+    ADXL362_ReturnXY(&xaxis, &yaxis);
+
+    //tempx = ((abs(xaxis - XDEFAULT)) / SENSITIVITY);
+    //tempy = ((abs(yaxis - YDEFAULT)) / SENSITIVITY);
+
+    //find the relative deviation. TODO: change the constants with SEMSITIVITY logic
+    //xchange = (xaxis < XDEFAULT) ?  tempx : (xaxis > XDEFAULT) ? (-1*tempx) : 0;
+    //ychange = (yaxis < YDEFAULT) ?  tempy : (yaxis > YDEFAULT) ? (-1*tempy) : 0;
+
+    xchange = (xaxis < (XDEFAULT - SENSITIVITY)) ? 1 : (xaxis > (XDEFAULT + SENSITIVITY)) ? -1 : 0;
+    ychange = (yaxis < (YDEFAULT - SENSITIVITY)) ? 1 : (yaxis > (YDEFAULT + SENSITIVITY)) ? -1 : 0;
+    //zchange = (zaxis < (ZDEFAULT - SENSITIVITY)) ? -1 : (zaxis > (ZDEFAULT + SENSITIVITY)) ? 1 : 0;
+
+#if DEBUG_MESSAGES
+    xil_printf("\nX:%d, Y:%d, xchange:%d, ychange:%d\n", xaxis, yaxis, xchange, ychange);
+#endif
+
+    //get the direction and check valid move, we only use x and y here as the maze is 2D
+    if((xchange !=0) || (ychange != 0))
+    {
+        //get new location
+    	new_x = (player_x+xchange);
+    	new_y = (player_y+ychange);
+
+    	//new_x = (new_x>(MAZE_X_SIZE_M1*BALL_SIZE)) ? (MAZE_X_SIZE_M1*BALL_SIZE) : (new_x<0) ? 0 : new_x;
+    	//new_y = (new_y>(MAZE_Y_SIZE_M1*BALL_SIZE)) ? (MAZE_Y_SIZE_M1*BALL_SIZE) : (new_y<0) ? 0 : new_y;
+
+    	new_x_index = NEAR_ARR_XINDEX(new_x);
+    	new_y_index = NEAR_ARR_YINDEX(new_y);
+
+    	#if DEBUG_MESSAGES
+        xil_printf("\n px:%d, py:%d, new_x:%d, new_y:%d\n", player_x, player_y, new_x, new_y);
+		#endif
+
+        //update the display, if valid move
+        switch(maze_arr[new_y_index][new_x_index])
+        {
+        	case WALL:
+        	{
+    			#if DEBUG_MESSAGES
+        		//Dont move as it is wall
+        	    xil_printf("Wall!\n");
+    			#endif
+        	    return MOVE_HANDLED;
+        	}
+        	case WAY:
+        	case PLAYER:
+        	{
+				//TODO: update location in display and in global
+				move_ball(new_x, new_y);
+
+				//update the player loc in globals
+				player_x = new_x;
+				player_y = new_y;
+
+				#if DEBUG_MESSAGES
+				xil_printf("moved to x:%d, y:%d\n", player_x, player_y);
+				#endif
+				return MOVE_HANDLED;
+			}
+        	case STAR:
+        	{
+        		arr_index = GobStarsCache.index;
+
+        		//Check if the star has already been reached
+    			isAvl = 0;
+    			for(i=0; i<arr_index; i++)
+    			{
+    				if((GobStarsCache.x[i] == new_x_index) && (GobStarsCache.y[i] == new_y_index))
+    					isAvl = 1;
+    			}
+
+    			//If not obtained the star, grant to user
+    			if(isAvl == 0)
+    			{
+					//update the score count
+					player_score++;
+
+					//Update the location of star in the cache
+					GobStarsCache.x[arr_index] = new_x_index;
+					GobStarsCache.y[arr_index] = new_y_index;
+					GobStarsCache.index++;
+    			}
+
+				move_ball(new_x, new_y);
+
+				//update the player loc in globals
+				player_x = new_x;
+				player_y = new_y;
+
+				#if DEBUG_MESSAGES
+				xil_printf("star x:%d, y:%d, score:%d\n", player_x, player_y, player_score);
+				#endif
+				return MOVE_HANDLED;
+			}
+        	case HOLE:
+        	{
+        		//update life
+        		player_life--;
+
+				move_ball(new_x, new_y);
+
+				//update the player loc in globals
+				player_x = new_x;
+				player_y = new_y;
+
+				if(player_life == PLAYER_LIFE_OVER)
+				{
+					return MOVE_LIFE_OVER;
+				}
+
+				#if DEBUG_MESSAGES
+				xil_printf("hole x:%d, y:%d, life:%d\n", player_x, player_y, player_life);
+				#endif
+				return MOVE_HANDLED;
+			}
+        	case DESTINATION:
+        	{
+				move_ball(new_x, new_y);
+
+				//update the player loc in globals
+				player_x = new_x;
+				player_y = new_y;
+
+				#if DEBUG_MESSAGES
+				xil_printf("you won!! x:%d, y:%d\n", player_x, player_y);
+				#endif
+				return MOVE_DEST_REACHED;
+			}
+        }
+
+    }
+	#if DEBUG_MESSAGES
+    xil_printf("still at x:%d, y:%d\n", player_x, player_y);
+	#endif
+
+	return MOVE_HANDLED;
+}
+
+
+//---------------only comments below---------------------//
+#if 0
+
+//update the display, if valid move
+if(maze_arr[new_y][new_x] == WALL)
+{
+	#if DEBUG_MESSAGES
+	//Dont move as it is wall
+    xil_printf("Wall!\n");
+	#endif
+    return MOVE_HANDLED;
+}
+else if((maze_arr[new_y][new_x] == WAY) || (maze_arr[new_y][new_x] == PLAYER))//TODO: remove user
+{
+	//TODO: update location in display and in global
+	move_ball(player_x, player_y, new_x, new_y, BALL_SIZE);
+    player_x = new_x;
+    player_y = new_y;
+
+    #if DEBUG_MESSAGES
+    xil_printf("moved to x:%d, y:%d\n", player_x, player_y);
+	#endif
+    return MOVE_HANDLED;
+}
+else if(maze_arr[new_y][new_x] == DESTINATION) //find if the destination has been reached or not
+{
+	move_ball(player_x, player_y, new_x, new_y, BALL_SIZE);
+    player_x = new_x;
+    player_y = new_y;
+
+	#if DEBUG_MESSAGES
+    xil_printf("you won!! x:%d, y:%d\n", player_x, player_y);
+	#endif
+	return MOVE_DEST_REACHED;
+
+}
+
+
+if(xchange <0)
+    	{
+    		if(ychange < 0)
+    		{
+    			//down-right
+    		}
+    		else if(ychange > 0)
+    		{
+    			//down-left
+    		}
+    		else
+    		{
+    			//down
+    		}
+    	}
+    	else if(xchange > 0)
+    	{
+    		if(ychange < 0)
+    		{
+    			//up-right
+    		}
+    		else if(ychange > 0)
+    		{
+    			//up-left
+    		}
+    		else
+    		{
+    			//up
+    		}
+    	}
+    	else
+    	{
+    		if(ychange < 0)
+    		{
+    			//right
+    		}
+    		else if(ychange > 0)
+    		{
+    			//left
+    		}
+    		//else
+    		//{
+    			//nothing
+    		//}
+    	}
+#endif

@@ -1,0 +1,69 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Nov  5 09:10:09 2017
+# Process ID: 5683
+# Current directory: /home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.runs/system_axi_gpio_2_2_synth_1
+# Command line: vivado -log system_axi_gpio_2_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_axi_gpio_2_2.tcl
+# Log file: /home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.runs/system_axi_gpio_2_2_synth_1/system_axi_gpio_2_2.vds
+# Journal file: /home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.runs/system_axi_gpio_2_2_synth_1/vivado.jou
+#-----------------------------------------------------------
+source system_axi_gpio_2_2.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1191.547 ; gain = 76.996 ; free physical = 249 ; free virtual = 4202
+INFO: [Synth 8-638] synthesizing module 'system_axi_gpio_2_2' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ip/system_axi_gpio_2_2/synth/system_axi_gpio_2_2.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'axi_gpio' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:1257]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (1#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (1#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (1#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (1#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (2#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (3#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (4#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'GPIO_Core' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:177]
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (5#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'GPIO_Core' (6#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:177]
+INFO: [Synth 8-256] done synthesizing module 'axi_gpio' (7#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:1257]
+INFO: [Synth 8-256] done synthesizing module 'system_axi_gpio_2_2' (8#1) [/home/gokul/playground/xilinx/del/lab2b/lab2b_lcd.srcs/sources_1/bd/system/ip/system_axi_gpio_2_2/synth/system_axi_gpio_2_2.vhd:84]
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.047 ; gain = 119.496 ; free physical = 226 ; free virtual = 4184
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.047 ; gain = 119.496 ; free physical = 212 ; free virtual = 4170
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1625.734 ; gain = 0.000 ; free physical = 128 ; free virtual = 3768
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:01:33 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 250 ; free virtual = 3891
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:01:33 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 250 ; free virtual = 3891
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:01:33 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 254 ; free virtual = 3895
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:01:33 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 245 ; free virtual = 3886
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:01:33 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 223 ; free virtual = 3873
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:01:38 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 126 ; free virtual = 3521
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:01:38 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 142 ; free virtual = 3520
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:01:38 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 141 ; free virtual = 3519
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 160 ; free virtual = 3539
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 159 ; free virtual = 3538
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 157 ; free virtual = 3536
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 157 ; free virtual = 3536
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 155 ; free virtual = 3534
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 155 ; free virtual = 3534
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     2|
+|2     |LUT2 |     4|
+|3     |LUT3 |     5|
+|4     |LUT4 |     4|
+|5     |LUT5 |    14|
+|6     |LUT6 |     4|
+|7     |FDRE |    25|
+|8     |FDSE |     1|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:01:39 . Memory (MB): peak = 1625.734 ; gain = 511.184 ; free physical = 154 ; free virtual = 3533
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:01:40 . Memory (MB): peak = 1625.734 ; gain = 523.770 ; free physical = 181 ; free virtual = 3544

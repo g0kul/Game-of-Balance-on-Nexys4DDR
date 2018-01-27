@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# 
+# Start of session at: Sat Nov 25 19:51:44 2017
+# Process ID: 8519
+# Current directory: /home/gokul/playground/xilinx/ece253lab/prj_gob/prj_gob.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/gokul/playground/xilinx/ece253lab/prj_gob/prj_gob.sdk/webtalk/webtalk.log
+# Journal file: /home/gokul/playground/xilinx/ece253lab/prj_gob/prj_gob.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

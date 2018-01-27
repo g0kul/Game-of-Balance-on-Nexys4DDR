@@ -1,0 +1,49 @@
+
+*** Running vivado
+    with args -log system_ilmb_bram_if_cntlr_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_ilmb_bram_if_cntlr_0.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source system_ilmb_bram_if_cntlr_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1152.941 ; gain = 54.996 ; free physical = 5007 ; free virtual = 41907
+INFO: [Synth 8-638] synthesizing module 'system_ilmb_bram_if_cntlr_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_ilmb_bram_if_cntlr_0/synth/system_ilmb_bram_if_cntlr_0.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'lmb_bram_if_cntlr' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3106]
+INFO: [Synth 8-638] synthesizing module 'lmb_mux' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2601]
+INFO: [Synth 8-638] synthesizing module 'pselect_mask' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-256] done synthesizing module 'pselect_mask' (1#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-256] done synthesizing module 'lmb_mux' (2#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2601]
+INFO: [Synth 8-256] done synthesizing module 'lmb_bram_if_cntlr' (3#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/51e1/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3106]
+INFO: [Synth 8-256] done synthesizing module 'system_ilmb_bram_if_cntlr_0' (4#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_ilmb_bram_if_cntlr_0/synth/system_ilmb_bram_if_cntlr_0.vhd:84]
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1195.441 ; gain = 97.496 ; free physical = 4979 ; free virtual = 41877
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1195.441 ; gain = 97.496 ; free physical = 4975 ; free virtual = 41873
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1516.336 ; gain = 0.000 ; free physical = 4565 ; free virtual = 41462
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1516.336 ; gain = 418.391 ; free physical = 4546 ; free virtual = 41443
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1516.336 ; gain = 418.391 ; free physical = 4546 ; free virtual = 41443
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1516.336 ; gain = 418.391 ; free physical = 4547 ; free virtual = 41443
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1516.336 ; gain = 418.391 ; free physical = 4538 ; free virtual = 41435
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1516.336 ; gain = 418.391 ; free physical = 4527 ; free virtual = 41424
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1530.336 ; gain = 432.391 ; free physical = 4392 ; free virtual = 41288
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1530.336 ; gain = 432.391 ; free physical = 4392 ; free virtual = 41288
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4391 ; free virtual = 41287
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4389 ; free virtual = 41285
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     3|
+|2     |LUT3 |     4|
+|3     |FDRE |     2|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.367 ; gain = 451.422 ; free physical = 4390 ; free virtual = 41286
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1549.375 ; gain = 464.016 ; free physical = 4414 ; free virtual = 41310

@@ -1,0 +1,13 @@
+vhdl xil_defaultlib "../../../bd/system/ip/system_microblaze_0_0/sim/system_microblaze_0_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_microblaze_0_axi_intc_0/sim/system_microblaze_0_axi_intc_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_mdm_1_0/sim/system_mdm_1_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_axi_smc_0/bd_0/ip/ip_1/sim/bd_44e3_psr_aclk_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_rst_mig_7series_0_100M_0/sim/system_rst_mig_7series_0_100M_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_axi_timer_0_0/sim/system_axi_timer_0_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_axi_gpio_0_0/sim/system_axi_gpio_0_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_axi_gpio_1_0/sim/system_axi_gpio_1_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_dlmb_v10_0/sim/system_dlmb_v10_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_ilmb_v10_0/sim/system_ilmb_v10_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_dlmb_bram_if_cntlr_0/sim/system_dlmb_bram_if_cntlr_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system/ip/system_ilmb_bram_if_cntlr_0/sim/system_ilmb_bram_if_cntlr_0.vhd" 
+nosort

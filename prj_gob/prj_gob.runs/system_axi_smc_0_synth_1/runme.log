@@ -1,0 +1,210 @@
+
+*** Running vivado
+    with args -log system_axi_smc_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_axi_smc_0.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source system_axi_smc_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1183.941 ; gain = 85.996 ; free physical = 4740 ; free virtual = 41635
+INFO: [Synth 8-638] synthesizing module 'system_axi_smc_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/synth/system_axi_smc_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:13]
+INFO: [Synth 8-638] synthesizing module 'clk_map_imp_1LX95IS' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1133]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_one_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_0/synth/bd_44e3_one_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'xlconstant_v1_1_3_xlconstant' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/45df/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-256] done synthesizing module 'xlconstant_v1_1_3_xlconstant' (1#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/45df/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_one_0' (2#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_0/synth/bd_44e3_one_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_psr_aclk_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_1/synth/bd_44e3_psr_aclk_0.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-638] synthesizing module 'lpf' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'SRL16' [/home/opt/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43657]
+INFO: [Synth 8-256] done synthesizing module 'SRL16' (3#1) [/home/opt/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43657]
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (4#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (5#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'sequence_psr' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-638] synthesizing module 'upcnt_n' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (6#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (7#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (8#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_psr_aclk_0' (9#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_1/synth/bd_44e3_psr_aclk_0.vhd:74]
+INFO: [Synth 8-256] done synthesizing module 'clk_map_imp_1LX95IS' (10#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1133]
+INFO: [Synth 8-638] synthesizing module 'm00_exit_pipeline_imp_B7U41B' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1183]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00e_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_28/synth/bd_44e3_m00e_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00e_0' (20#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_28/synth/bd_44e3_m00e_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'm00_exit_pipeline_imp_B7U41B' (21#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1183]
+INFO: [Synth 8-638] synthesizing module 'm00_nodes_imp_XE3MPV' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1554]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00arn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_23/synth/bd_44e3_m00arn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base' (27#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized0' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized0' (30#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00arn_0' (36#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_23/synth/bd_44e3_m00arn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00awn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_25/synth/bd_44e3_m00awn_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00awn_0' (37#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_25/synth/bd_44e3_m00awn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00bn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_27/synth/bd_44e3_m00bn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized1' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized1' (37#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized2' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized2' (37#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00bn_0' (38#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_27/synth/bd_44e3_m00bn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00rn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_24/synth/bd_44e3_m00rn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized3' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized3' (38#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00rn_0' (39#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_24/synth/bd_44e3_m00rn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00wn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_26/synth/bd_44e3_m00wn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized4' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized4' (39#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized5' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized5' (39#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00wn_0' (40#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_26/synth/bd_44e3_m00wn_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'm00_nodes_imp_XE3MPV' (41#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1554]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_m00s2a_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_22/synth/bd_44e3_m00s2a_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_m00s2a_0' (43#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_22/synth/bd_44e3_m00s2a_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s00a2s_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_10/synth/bd_44e3_s00a2s_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s00a2s_0' (45#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_10/synth/bd_44e3_s00a2s_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 's00_entry_pipeline_imp_1BIQ3N0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1859]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s00mmu_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_7/synth/bd_44e3_s00mmu_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s00mmu_0' (49#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_7/synth/bd_44e3_s00mmu_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s00sic_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_9/synth/bd_44e3_s00sic_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s00sic_0' (54#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_9/synth/bd_44e3_s00sic_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s00tr_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_8/synth/bd_44e3_s00tr_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s00tr_0' (57#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_8/synth/bd_44e3_s00tr_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 's00_entry_pipeline_imp_1BIQ3N0' (58#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:1859]
+INFO: [Synth 8-638] synthesizing module 's00_nodes_imp_1GZQO6U' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:2470]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_sarn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_11/synth/bd_44e3_sarn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized6' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized6' (58#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized7' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized7' (58#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_sarn_0' (59#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_11/synth/bd_44e3_sarn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_sawn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_13/synth/bd_44e3_sawn_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_sawn_0' (60#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_13/synth/bd_44e3_sawn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_sbn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_15/synth/bd_44e3_sbn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized8' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized8' (60#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_sbn_0' (61#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_15/synth/bd_44e3_sbn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_srn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_12/synth/bd_44e3_srn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized9' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized9' (61#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_srn_0' (62#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_12/synth/bd_44e3_srn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_swn_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_14/synth/bd_44e3_swn_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'xpm_memory_base__parameterized10' [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'xpm_memory_base__parameterized10' (62#1) [/home/opt/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_swn_0' (63#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_14/synth/bd_44e3_swn_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 's00_nodes_imp_1GZQO6U' (64#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:2470]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s01a2s_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_19/synth/bd_44e3_s01a2s_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s01a2s_0' (65#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_19/synth/bd_44e3_s01a2s_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 's01_entry_pipeline_imp_DDN1H4' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:2766]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s01mmu_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_16/synth/bd_44e3_s01mmu_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s01mmu_0' (66#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_16/synth/bd_44e3_s01mmu_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s01sic_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_18/synth/bd_44e3_s01sic_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s01sic_0' (67#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_18/synth/bd_44e3_s01sic_0.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_s01tr_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_17/synth/bd_44e3_s01tr_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_s01tr_0' (68#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_17/synth/bd_44e3_s01tr_0.sv:58]
+INFO: [Synth 8-256] done synthesizing module 's01_entry_pipeline_imp_DDN1H4' (69#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:2766]
+INFO: [Synth 8-638] synthesizing module 's01_nodes_imp_9Z2OAO' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:3053]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_sarn_1' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_20/synth/bd_44e3_sarn_1.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_sarn_1' (70#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_20/synth/bd_44e3_sarn_1.sv:58]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_srn_1' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_21/synth/bd_44e3_srn_1.sv:58]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_srn_1' (71#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_21/synth/bd_44e3_srn_1.sv:58]
+INFO: [Synth 8-256] done synthesizing module 's01_nodes_imp_9Z2OAO' (72#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:3053]
+INFO: [Synth 8-638] synthesizing module 'switchboards_imp_1N40MOY' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:3184]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_arsw_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_2/synth/bd_44e3_arsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_arsw_0' (75#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_2/synth/bd_44e3_arsw_0.sv:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_awsw_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_4/synth/bd_44e3_awsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_awsw_0' (76#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_4/synth/bd_44e3_awsw_0.sv:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_bsw_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_6/synth/bd_44e3_bsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_bsw_0' (77#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_6/synth/bd_44e3_bsw_0.sv:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_rsw_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_3/synth/bd_44e3_rsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_rsw_0' (78#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_3/synth/bd_44e3_rsw_0.sv:57]
+INFO: [Synth 8-638] synthesizing module 'bd_44e3_wsw_0' [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_5/synth/bd_44e3_wsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3_wsw_0' (79#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_5/synth/bd_44e3_wsw_0.sv:57]
+INFO: [Synth 8-256] done synthesizing module 'switchboards_imp_1N40MOY' (80#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:3184]
+INFO: [Synth 8-256] done synthesizing module 'bd_44e3' (81#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hdl/bd_44e3.v:13]
+INFO: [Synth 8-256] done synthesizing module 'system_axi_smc_0' (82#1) [/home/davidmc/prep_new_ddr_cache_v2/prep_new_ddr_cache_v2.srcs/sources_1/bd/system/ip/system_axi_smc_0/synth/system_axi_smc_0.v:57]
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1331.441 ; gain = 233.496 ; free physical = 4626 ; free virtual = 41524
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1331.441 ; gain = 233.496 ; free physical = 4641 ; free virtual = 41539
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 2125.023 ; gain = 69.000 ; free physical = 3994 ; free virtual = 40764
+Finished Constraint Validation : Time (s): cpu = 00:00:46 ; elapsed = 00:00:43 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4474 ; free virtual = 41244
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:46 ; elapsed = 00:00:43 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4474 ; free virtual = 41244
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:00:43 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4473 ; free virtual = 41244
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:49 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4405 ; free virtual = 41182
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:35 ; elapsed = 00:01:40 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4247 ; free virtual = 41030
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+----------------+----------------------+----------------+
+|Module Name                                                                                                                                                                        | RTL Object                       | Inference      | Size (Depth x Width) | Primitives     | 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+----------------+----------------------+----------------+
+|inst/i_0/\m00_nodes/m00_ar_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory         | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\m00_nodes/m00_ar_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                           | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 158             | RAM32M x 27    | 
+|inst/i_0/\m00_nodes/m00_aw_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory         | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\m00_nodes/m00_aw_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                           | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 158             | RAM32M x 27    | 
+|inst/i_0/\m00_nodes/m00_b_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                      | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 19              | RAM32M x 4     | 
+|inst/i_0/\m00_nodes/m00_b_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 7               | RAM32M x 2     | 
+|inst/i_0/\m00_nodes/m00_r_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                      | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 19              | RAM32M x 4     | 
+|inst/i_0/\m00_nodes/m00_r_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 53              | RAM32M x 9     | 
+|inst/i_0/\m00_nodes/m00_w_node/inst /\inst_si_handler/gen_si_handler.gen_request_fifos.gen_req_fifo[0].inst_req_fifo/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory  | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 4 x 1                | RAM16X1D x 1   | 
+|inst/i_0/\m00_nodes/m00_w_node/inst /\inst_si_handler/gen_si_handler.gen_request_fifos.gen_req_fifo[1].inst_req_fifo/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory  | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 4 x 1                | RAM16X1D x 1   | 
+|inst/i_0/\m00_nodes/m00_w_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory          | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\m00_nodes/m00_w_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 70              | RAM32M x 12    | 
+|inst/i_0/\s00_nodes/s00_ar_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                     | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 18              | RAM32M x 3     | 
+|inst/i_0/\s00_nodes/s00_ar_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                           | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 140             | RAM32M x 24    | 
+|inst/i_0/\s00_nodes/s00_aw_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                     | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 18              | RAM32M x 3     | 
+|inst/i_0/\s00_nodes/s00_aw_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                           | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 140             | RAM32M x 24    | 
+|inst/i_0/\s00_nodes/s00_b_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory          | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\s00_nodes/s00_b_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 25              | RAM32M x 5     | 
+|inst/i_0/\s00_nodes/s00_r_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory          | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\s00_nodes/s00_r_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 71              | RAM32M x 12    | 
+|inst/i_0/\s00_nodes/s00_w_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                      | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 18              | RAM32M x 3     | 
+|inst/i_0/\s00_nodes/s00_w_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 52              | RAM32M x 9     | 
+|inst/i_0/\s01_nodes/s01_ar_node/inst /\inst_mi_handler/gen_normal_area.gen_fifo_req.inst_fifo_req/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                     | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 18              | RAM32M x 3     | 
+|inst/i_0/\s01_nodes/s01_ar_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                           | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 140             | RAM32M x 24    | 
+|inst/i_0/\s01_nodes/s01_r_node/inst /\inst_mi_handler/gen_normal_area.gen_node_prog_full.inst_node_prog_full/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory          | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
+|inst/i_0/\s01_nodes/s01_r_node/inst /\inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory                            | gen_wr_a.gen_word_narrow.mem_reg | User Attribute | 32 x 71              | RAM32M x 12    | 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+----------------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:43 ; elapsed = 00:01:48 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4808 ; free virtual = 41597
+Finished Timing Optimization : Time (s): cpu = 00:01:46 ; elapsed = 00:01:51 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4752 ; free virtual = 41542
+Finished Technology Mapping : Time (s): cpu = 00:01:53 ; elapsed = 00:01:59 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4685 ; free virtual = 41475
+Finished IO Insertion : Time (s): cpu = 00:01:54 ; elapsed = 00:02:00 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4662 ; free virtual = 41450
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:54 ; elapsed = 00:02:00 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4661 ; free virtual = 41450
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:01 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4653 ; free virtual = 41442
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:55 ; elapsed = 00:02:01 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4647 ; free virtual = 41435
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:56 ; elapsed = 00:02:02 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4622 ; free virtual = 41411
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:56 ; elapsed = 00:02:02 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4617 ; free virtual = 41406
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |     6|
+|2     |LUT1     |   150|
+|3     |LUT2     |   334|
+|4     |LUT3     |   402|
+|5     |LUT4     |  1145|
+|6     |LUT5     |   448|
+|7     |LUT6     |   956|
+|8     |MUXF7    |     2|
+|9     |RAM16X1D |     2|
+|10    |RAM32M   |   207|
+|11    |RAM32X1D |     6|
+|12    |SRL16    |     1|
+|13    |SRLC32E  |   215|
+|14    |FDR      |     4|
+|15    |FDRE     |  3224|
+|16    |FDSE     |   164|
++------+---------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:56 ; elapsed = 00:02:02 . Memory (MB): peak = 2125.023 ; gain = 1027.078 ; free physical = 4618 ; free virtual = 41406
+synth_design: Time (s): cpu = 00:02:00 ; elapsed = 00:02:06 . Memory (MB): peak = 2125.031 ; gain = 1039.672 ; free physical = 4499 ; free virtual = 41288
